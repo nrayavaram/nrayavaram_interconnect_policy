@@ -6,7 +6,7 @@ provider "google" {
 
 
 resource "google_compute_interconnect_attachment" "on_prem" {
-  name                     = "on-prem-attachment"
+  name                     = "on-dev-appid-sys-bkonprem-icvlan"
   edge_availability_domain = "AVAILABILITY_DOMAIN_1"
   type                     = "PARTNER"
   router                   = google_compute_router.foobar.id
@@ -14,7 +14,7 @@ resource "google_compute_interconnect_attachment" "on_prem" {
 }
 
 resource "google_compute_router" "foobar" {
-  name    = "router"
+  name    = "on-dev-appid-sys-bkonprem-router"
   network = google_compute_network.foobar.name
   bgp {
     asn = 16550
@@ -22,12 +22,12 @@ resource "google_compute_router" "foobar" {
 }
 
 resource "google_compute_network" "foobar" {
-  name                    = "network"
+  name                    = "on-dev-appid-sys-bkonprem-network"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_interconnect_attachment" "ipsec-encrypted-interconnect-attachment" {
-  name                     = "test-interconnect-attachment"
+  name                     = "on-dev-appid-sys-bkonprem-attachment"
   edge_availability_domain = "AVAILABILITY_DOMAIN_1"
   type                     = "PARTNER"
   router                   = google_compute_router.router.id
@@ -38,7 +38,7 @@ resource "google_compute_interconnect_attachment" "ipsec-encrypted-interconnect-
 }
 
 resource "google_compute_address" "address" {
-  name          = "test-address"
+  name          = "on-dev-appid-sys-test-address"
   address_type  = "INTERNAL"
   purpose       = "IPSEC_INTERCONNECT"
   address       = "192.168.1.0"
@@ -47,7 +47,7 @@ resource "google_compute_address" "address" {
 }
 
 resource "google_compute_router" "router" {
-  name                          = "test-router"
+  name                          = "on-dev-appid-sys-test-router"
   network                       = google_compute_network.network.name
   encrypted_interconnect_router = true
   bgp {
@@ -56,6 +56,6 @@ resource "google_compute_router" "router" {
 }
 
 resource "google_compute_network" "network" {
-  name                    = "test-network"
+  name                    = "on-dev-appid-sys-test-network"
   auto_create_subnetworks = false
 }
