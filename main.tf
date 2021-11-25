@@ -13,4 +13,11 @@ resource "google_compute_interconnect_attachment" "on_prem" {
   mtu                      = 1460
 }
 
+resource "google_compute_router" "foobar" {
+  name    = "on-dev-appid-sys-bkonprem-router"
+  network = google_compute_network.foobar.name
+  bgp {
+    asn = 16550
+  }
+}
 
