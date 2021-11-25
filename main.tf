@@ -38,7 +38,7 @@ resource "google_compute_interconnect_attachment" "ipsec-encrypted-interconnect-
 }
 
 resource "google_compute_address" "address" {
-  name          = "on-dev-appid-sys-test-address"
+  name          = "on-dev-appid-sys-bktest-address"
   address_type  = "INTERNAL"
   purpose       = "IPSEC_INTERCONNECT"
   address       = "192.168.1.0"
@@ -47,7 +47,7 @@ resource "google_compute_address" "address" {
 }
 
 resource "google_compute_router" "router" {
-  name                          = "on-dev-appid-sys-test-router"
+  name                          = "on-dev-appid-sys-bktest-router"
   network                       = google_compute_network.network.name
   encrypted_interconnect_router = true
   bgp {
@@ -56,7 +56,7 @@ resource "google_compute_router" "router" {
 }
 
 resource "google_compute_network" "network" {
-  name                    = "on-dev-appid-sys-test-network"
+  name                    = "on-dev-appid-sys-bktest-network"
   auto_create_subnetworks = false
 }
 
