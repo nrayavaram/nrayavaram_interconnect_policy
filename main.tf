@@ -42,16 +42,9 @@ resource "google_compute_network" "foobar" {
 
 resource "google_compute_router" "foobar" {
   name    = "on-dev-appid-syst-bkonprem-router"
-  network = google_compute_network.foobar.name
+  region  = "us-central1"
+  network = "google_compute_network.foobar.name"
   bgp {
-    asn               = 64514
-    advertise_mode    = "CUSTOM"
-    advertised_groups = ["ALL_SUBNETS"]
-    advertised_ip_ranges {
-      range = "1.2.3.4"
-    }
-    advertised_ip_ranges {
-      range = "6.7.0.0/16"
-    }
+    # Google autonomous system number (ASN)
+    asn = 16550
   }
-}
