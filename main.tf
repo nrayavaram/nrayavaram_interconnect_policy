@@ -1,3 +1,13 @@
+
+provider "google" {
+ access_token = var.access_token
+ project = "airline1-sabre-wolverine"
+}
+
+
+
+
+
 resource "google_compute_interconnect_attachment" "on_prem" {
   name                     = "on-prem-attachment"
   edge_availability_domain = "AVAILABILITY_DOMAIN_1"
