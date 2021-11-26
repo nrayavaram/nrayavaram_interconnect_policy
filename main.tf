@@ -51,7 +51,6 @@ resource "google_compute_router" "foobar" {
 }
 
 
-
 resource "google_compute_interconnect_attachment" "foobar" {
   name    = "on-dev-appid-syst-bkonprem-icvlan"
   # Obs: router and attachment must reside in same region
