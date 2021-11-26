@@ -48,3 +48,4 @@ resource "google_compute_router" "foobar" {
     # Google autonomous system number (ASN)
     asn = 16550
   }
+}
