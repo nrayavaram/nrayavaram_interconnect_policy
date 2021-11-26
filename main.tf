@@ -49,3 +49,14 @@ resource "google_compute_router" "foobar" {
     asn = 16550
   }
 }
+
+
+
+resource "google_compute_interconnect_attachment" "foobar" {
+  name    = "on-dev-appid-syst-bkonprem-icvlan"
+  # Obs: router and attachment must reside in same region
+  region  = "us-central1"
+  type    = "DEDICATED"
+  router  = google_compute_router.foobar.id
+  mtu     = 1500
+}
