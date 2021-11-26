@@ -9,7 +9,7 @@ provider "google" {
 
 
 resource "google_compute_interconnect_attachment" "on_prem" {
-  name                     = "on-prem-attachment"
+  name                     = "on-dev-appid-syst-bkonprem-icvlan"
   edge_availability_domain = "AVAILABILITY_DOMAIN_1"
   type                     = "PARTNER"
   region                   = "us-west1"
@@ -35,13 +35,13 @@ resource "google_compute_interconnect_attachment" "on_prem" {
 #}
 
 resource "google_compute_network" "foobar" {
-  name                    = "network"
+  name                    = "on-dev-appid-syst-bkonprem-network"
   auto_create_subnetworks = false
   mtu                     = 1500
 }
 
 resource "google_compute_router" "foobar" {
-  name    = "my-router"
+  name    = "on-dev-appid-syst-bkonprem-router"
   network = google_compute_network.foobar.name
   bgp {
     asn               = 64514
