@@ -38,7 +38,6 @@ resource "google_compute_network" "foobar" {
   name                    = "network"
   auto_create_subnetworks = false
   mtu                     = 1500
-  project                 = var.project_id
 }
 
 resource "google_compute_router" "foobar" {
