@@ -21,7 +21,7 @@ resource "google_compute_interconnect_attachment" "on_prem" {
 resource "google_compute_network" "foobar" {
   name                    = "on-dev-appid-syst-bkonprem-network"
   auto_create_subnetworks = false
-  delete_default_routes_on_create = true
+#  delete_default_routes_on_create = true
   mtu                     = 1500
 }
 
