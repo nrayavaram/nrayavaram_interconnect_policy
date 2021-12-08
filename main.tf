@@ -26,7 +26,7 @@ resource "google_compute_network" "foobar" {
 }
 
 resource "google_compute_router" "foobar" {
-  name    = "on-dev-appid-syst-bkonprem-router"
+  name    = "on-dev-appid-syst-bkonprem-icvlan"
   region  = "us-central1"
   network = "google_compute_network.foobar.name"
   bgp {
